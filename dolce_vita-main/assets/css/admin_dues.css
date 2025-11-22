@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Body & Background === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('../background/village.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  align-items: center;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+
+/* === Navbar === */
+.navbar {
+  font-size: 1.2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+  height: auto;
+}
+
+
+/* Navbar Logo */
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo img {
+  width: 80px;       
+  height: auto;       
+  display: block;
+}
+
+.logo-text {
+  background: linear-gradient(90deg, #2A529B, #B0A32E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 90px;      
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 70px;     
+  }
+}
+
+.navbar ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #f0b90b;
+}
+
+/* === Sidebar === */
+.sidebar {
+  width: 250px;
+  margin-top: 100px;
+  padding: 2rem 1rem;
+  height: 100vh;
+  position: fixed;
+  padding: 1.5rem 1rem;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 9;
+}
+
+.sidebar .logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f5a623;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 1.2rem;
+}
+
+.sidebar ul a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.sidebar ul a:hover,
+.sidebar ul a.active {
+  background: #f5a623;
+  color: #000;
+}
+
+
+
+/* === Dues Container (Main Content Area) === */
+.dues-container {
+  width: 1000px; 
+  height: auto;
+  margin: 90px auto 20px auto; 
+  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: #333;
+  animation: fadeIn 0.6s ease-in-out;
+  position: relative;
+  margin-top: 200px;
+}
+
+/* === Headings === */
+.dues-container h1,
+.dues-container h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* === Search Form === */
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-form input[type="text"] {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.search-form input[type="text"]::placeholder {
+  color: #9ca3af;
+}
+
+.search-form input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.search-form button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+  background: #0056b3;
+}
+
+/* === Residents Table === */
+.residents-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.residents-table th,
+.residents-table td {
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.residents-table th {
+  background: #ffc75f;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.residents-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.residents-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.residents-table tbody tr:hover {
+  background: #ecfdf5;
+}
+
+.residents-table td {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* === Manage Button === */
+.manage-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #17a2b8;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.manage-btn:hover {
+  background: #138496;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(23, 162, 184, 0.3);
+}
+
+/* === Empty State === */
+.empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* === Animation === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+  .dues-container {
+    margin-left: 250px;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .dues-container {
+    margin-left: 220px;
+    margin-right: 10px;
+    padding: 20px 25px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-form input[type="text"] {
+    width: 100%;
+  }
+
+  .residents-table th,
+  .residents-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .dues-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 80px;
+    padding: 15px 20px;
+  }
+
+  .residents-table {
+    font-size: 0.8rem;
+  }
+
+  .residents-table th,
+  .residents-table td {
+    padding: 8px 6px;
+  }
+
+  .manage-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
